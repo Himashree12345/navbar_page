@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import Home from '../pages/About';
+import About from './About';
 
-test('renders home component', () => {
-  render(<Home />);
-  const headingElement = screen.getByRole('heading', { name: /home/i });
+test('renders about component', () => {
+  render(<About />);
+  const headingElement = screen.getByRole('heading', { name: /About/i });
   expect(headingElement).toBeInTheDocument();
 });
