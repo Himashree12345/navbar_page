@@ -1,0 +1,43 @@
+name: Build and Deploy mern application
+
+
+on:
+  push:
+    branches: [ "main" ]
+
+
+ 
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+  
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Set up Nodejs version
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.18.0
+        cache: 'npm'
+    - run: npm install
+    # - run: npm run build --if-present
+    # - run: npm test
+      
+
+   
+  deploy :
+     needs: build
+     runs-on: self-hosted
+     steps:
+       - name: Deploy the aplication to ec2 instance
+         
+         run: 
+           npm start
+      
+          
+
+    
+      
